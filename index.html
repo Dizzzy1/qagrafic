@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Graficos Anual/Mensual</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Graficos</h1>
+        
+        <form id="chartForm">
+            <div class="form-group">
+                <label for="chartType">Tipo de Grafico:</label>
+                <select id="chartType" required>
+                    <option value="">Seleccione un tipo</option>
+                    <option value="bar">Barras</option>
+                    <option value="line">Líneas</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="periodType">Periodo:</label>
+                <select id="periodType" required>
+                    <option value="">Seleccione periodo</option>
+                    <option value="custom">Meses/Semanas Personalizados</option>
+                    <option value="yearly">Anual (2021-2024)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="graphTitle">Título del Grafico:</label>
+                <input type="text" id="graphTitle" required placeholder="Ej: WTD - QA Score">
+            </div>
+            
+            <div id="dataInputs" class="form-group">
+                <!-- Inputs dinámicos aparecerán aquí -->
+            </div>
+            <button type="button" id="clearDataBtn" class="hidden">Limpiar Datos</button>
+
+            <button type="button" id="addMonthBtn" class="hidden">Agregar Supervisor</button>
+            <button type="submit">Generar Grafico</button>
+        </form>
+        <div id="downloadBtnContainer" class="download-btns"></div>
+        <div id="chartSection" class="hidden">
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+            <button id="backButton">Volver al Formulario</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
